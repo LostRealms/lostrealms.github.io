@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+<script src="https://mcapi.us/scripts/minecraft.js"></script>
+<div class="server-status">
+  My awesome server is currently <span class="server-online"></span>!
+</div>
+<script>
+  MinecraftAPI.getServerStatus('lr.game-server.cc', {
+    port: 19132 // optional, only if you need a custom port
+  }, function (err, status) {
+    if (err) {
+      return document.querySelector('.server-status').innerHTML = 'Error';
+    }
+
+    // you can change these to your own message!
+    document.querySelector('.server-online').innerHTML = status.online ? 'Online' : 'Offline';
+  });
+</script>
+</body>
+</html>
